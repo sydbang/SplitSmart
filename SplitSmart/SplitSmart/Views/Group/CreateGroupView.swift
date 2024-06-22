@@ -47,5 +47,5 @@ struct CreateGroupView: View {
 
 #Preview {
     CreateGroupView()
-        .modelContainer(for: Group.self)
+        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
 }

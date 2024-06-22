@@ -9,7 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct GroupListView: View {
-    let groups: [Group]
+    @State private var isPresented: Bool = false
+    @Query(sort: \Group.id, order: .reverse) private var groups: [Group]
+    
     @Environment(\.modelContext) private var context
     private func deleteTodo(indexSet: IndexSet) {
         indexSet.forEach { index in
@@ -23,29 +25,40 @@ struct GroupListView: View {
         }
     }
     var body: some View {
-        List {
-            ForEach(groups, id: \.id) { group in
-                NavigationLink(value: group) {
-                    VStack(alignment: .leading) {
-                        Text(group.name)
-                            .font(.title3)
-                        Text(group.name)
-                            .font(.caption)
-                    }
+        VStack {
+            HStack {
+                Text("Groups")
+                Spacer()
+                Button {
+                    isPresented = true
+                } label: {
+                    Image(systemName: "plus")
                 }
-            }.onDelete(perform: deleteTodo)
-        }.navigationDestination(for: Group.self) { group in
-            GroupDetailView(group: group)
+            }
+
+            List {
+                ForEach(groups, id: \.id) { group in
+                    NavigationLink(value: group) {
+                        VStack(alignment: .leading) {
+                            Text(group.name)
+                                .font(.title3)
+                            Text(group.name)
+                                .font(.caption)
+                        }
+                    }
+                }.onDelete(perform: deleteTodo)
+            }.navigationDestination(for: Group.self) { group in
+                GroupDetailView(group: group)
+            }
         }
+        .sheet(isPresented: $isPresented, content: {
+            CreateGroupView()
+        })
     }
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Group.self, configurations: config)
-
-    let groups = [Group(name: "Test group")]
-    
-    return GroupListView(groups: groups).modelContainer(container)
+    GroupListView()
+        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
 }
 

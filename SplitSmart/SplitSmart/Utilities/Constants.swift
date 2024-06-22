@@ -9,8 +9,10 @@ import Foundation
 
 struct Constants {
     enum expenseType: Codable {
-        case share
-        case percentage
-        case exactValue
+        case share, percentage, exactValue
+    }
+    
+    enum Tab {
+        case groups, addExpense, settings, activities
     }
 }

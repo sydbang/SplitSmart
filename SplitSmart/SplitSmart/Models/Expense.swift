@@ -11,13 +11,17 @@ import SwiftData
 @Model
 class Expense {
     var creationDate: Date
+    var paymentDate: Date
+    var lastUpdatedDate: Date
     var payerId: String
     var amount: Double
     var currency: String
     var expenseAllocation: [ExpenseAllocation]
     
     init(payerId: String, amount: Double, currency: String, expenseAllocation: [ExpenseAllocation]) {
-        creationDate = Date()
+        self.creationDate = Date()
+        self.paymentDate = Date()
+        self.lastUpdatedDate = Date()
         self.payerId = payerId
         self.amount = amount
         self.currency = currency

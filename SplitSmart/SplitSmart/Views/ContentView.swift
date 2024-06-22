@@ -10,31 +10,32 @@ import SwiftData
 
 struct ContentView: View {
 
-    @State private var isPresented: Bool = false
-    @Query(sort: \Group.id, order: .reverse) private var groups: [Group]
-
+    @State private var selectedTab: Constants.Tab = .groups
     var body: some View {
         NavigationStack {
-            VStack {
-                GroupListView(groups: groups)
-                    .navigationTitle("SplitSmart")
-            }
-            .sheet(isPresented: $isPresented, content: {
-                CreateGroupView()
-            })
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        isPresented = true
-                    } label: {
-                        Image(systemName: "plus")
+            TabView {
+                GroupListView()
+                    .tabItem {
+                        Label("Groups", systemImage: "house")
                     }
-                }
+                    .tag(Constants.Tab.groups)
+                GroupListView()
+                    .tabItem {
+                        Label("+", systemImage: "flag")
+                    }
+                    .tag(Constants.Tab.addExpense)
+                GroupListView()
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
+                    .tag(Constants.Tab.settings)
             }
+
         }
     }
 }
 
-//#Preview {
-//    ContentView()
-//}
+#Preview {
+    ContentView()
+        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
+}

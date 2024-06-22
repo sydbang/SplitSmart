@@ -147,8 +147,8 @@
 		6FB7A4192C275FE700688D42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D7B2B25B2C2773010075BDE4 /* Group */,
 				6FB7A3F02C275F9900688D42 /* ContentView.swift */,
+				D7B2B25B2C2773010075BDE4 /* Group */,
 			);
 			path = Views;
 			sourceTree = "<group>";
