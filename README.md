@@ -1,2 +1,2 @@
-# splitSmart
+# SplitSmart
 trip expense calculator
