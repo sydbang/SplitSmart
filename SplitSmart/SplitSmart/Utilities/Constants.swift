@@ -8,7 +8,7 @@
 import Foundation
 
 struct Constants {
-    enum expenseType {
+    enum expenseType: Codable {
         case share
         case percentage
         case exactValue

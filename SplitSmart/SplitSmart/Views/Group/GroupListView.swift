@@ -41,8 +41,6 @@ struct GroupListView: View {
 }
 
 #Preview {
-    ContentView().modelContainer(for: Group.self)
-    
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Group.self, configurations: config)
 
