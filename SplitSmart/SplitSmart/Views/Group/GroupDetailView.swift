@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct GroupDetailView: View {
+    @State private var addPersonIsPresented: Bool = false
 
     @State private var name: String = ""
 
@@ -21,6 +22,7 @@ struct GroupDetailView: View {
         Form {
             TextField("Name", text: $name)
             
+            Text("Members")
             ForEach(group.people) { person in
                 Text(person.name)
             }
@@ -44,8 +46,12 @@ struct GroupDetailView: View {
             HStack {
                 Text("Members")
                 Spacer()
-                Button("+") {
-                    
+                Button {
+                    addPersonIsPresented = true
+                } label: {
+                    Image(systemName: "plus")
+                }.sheet(isPresented: $addPersonIsPresented) {
+                    AddPersonToGroupView(group: group)
                 }
             }.padding()
         }
