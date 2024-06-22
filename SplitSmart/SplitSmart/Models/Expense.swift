@@ -13,15 +13,17 @@ class Expense {
     var creationDate: Date
     var paymentDate: Date
     var lastUpdatedDate: Date
+    var detail: String
     var payerId: String
     var amount: Double
     var currency: String
     var expenseAllocation: [ExpenseAllocation]
     
-    init(payerId: String, amount: Double, currency: String, expenseAllocation: [ExpenseAllocation]) {
+    init(detail: String, payerId: String, amount: Double, currency: String, expenseAllocation: [ExpenseAllocation]) {
         self.creationDate = Date()
         self.paymentDate = Date()
         self.lastUpdatedDate = Date()
+        self.detail = detail
         self.payerId = payerId
         self.amount = amount
         self.currency = currency

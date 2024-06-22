@@ -18,6 +18,7 @@
 		6FB7A4202C27729C00688D42 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A41F2C27729C00688D42 /* Expense.swift */; };
 		6FB7A4232C2781DC00688D42 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A4222C2781DC00688D42 /* AddExpenseView.swift */; };
 		6FB7A4262C27827E00688D42 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A4252C27827E00688D42 /* ActivitiesView.swift */; };
+		6FB7A4292C278EA100688D42 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A4282C278EA100688D42 /* ButtonView.swift */; };
 		D7B2B2542C276F990075BDE4 /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2532C276F990075BDE4 /* GroupListView.swift */; };
 		D7B2B2562C276FB70075BDE4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2552C276FB70075BDE4 /* Group.swift */; };
 		D7B2B2582C27701B0075BDE4 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2572C27701B0075BDE4 /* CreateGroupView.swift */; };
@@ -63,6 +64,7 @@
 		6FB7A41F2C27729C00688D42 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		6FB7A4222C2781DC00688D42 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		6FB7A4252C27827E00688D42 /* ActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
+		6FB7A4282C278EA100688D42 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		D7B2B2532C276F990075BDE4 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 		D7B2B2552C276FB70075BDE4 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = SplitSmart/Views/Group.swift; sourceTree = SOURCE_ROOT; };
 		D7B2B2572C27701B0075BDE4 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				D7B2B25B2C2773010075BDE4 /* Group */,
 				6FB7A4212C27818800688D42 /* AddExpense */,
 				6FB7A4242C27826B00688D42 /* Activities */,
+				6FB7A4272C278E5800688D42 /* CommonUI */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +213,14 @@
 				6FB7A4252C27827E00688D42 /* ActivitiesView.swift */,
 			);
 			path = Activities;
+			sourceTree = "<group>";
+		};
+		6FB7A4272C278E5800688D42 /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				6FB7A4282C278EA100688D42 /* ButtonView.swift */,
+			);
+			path = CommonUI;
 			sourceTree = "<group>";
 		};
 		D7B2B25B2C2773010075BDE4 /* Group */ = {
@@ -360,6 +371,7 @@
 				6FB7A4232C2781DC00688D42 /* AddExpenseView.swift in Sources */,
 				D7B2B2672C278D000075BDE4 /* AddPersonToGroupView.swift in Sources */,
 				D7B2B2632C2788C30075BDE4 /* CreatePersonView.swift in Sources */,
+				6FB7A4292C278EA100688D42 /* ButtonView.swift in Sources */,
 				6FB7A4202C27729C00688D42 /* Expense.swift in Sources */,
 				6FB7A3F12C275F9900688D42 /* ContentView.swift in Sources */,
 				6FB7A3EF2C275F9900688D42 /* SplitSmartApp.swift in Sources */,
