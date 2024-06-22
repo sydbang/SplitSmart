@@ -13,6 +13,6 @@ struct SplitSmartApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-        }.modelContainer(for: Group.self)
+        }.modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
     }
 }
