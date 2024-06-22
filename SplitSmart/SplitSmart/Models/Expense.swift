@@ -6,16 +6,34 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Expense {
+@Model
+class Expense {
+    var creationDate: Date
     var payerId: String
     var amount: Double
     var currency: String
-    var expenseAllocation: ExpenseAllocation
+    var expenseAllocation: [ExpenseAllocation]
+    
+    init(payerId: String, amount: Double, currency: String, expenseAllocation: [ExpenseAllocation]) {
+        creationDate = Date()
+        self.payerId = payerId
+        self.amount = amount
+        self.currency = currency
+        self.expenseAllocation = expenseAllocation
+    }
 }
 
-struct ExpenseAllocation {
+@Model
+class ExpenseAllocation {
     var userId: String
     var type: Constants.expenseType
     var value: Double
+    
+    init(userId: String, type: Constants.expenseType, value: Double) {
+        self.userId = userId
+        self.type = type
+        self.value = value
+    }
 }
