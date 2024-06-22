@@ -1,5 +1,5 @@
 //
-//  CreateGroupView.swift
+//  CreatePersonView.swift
 //  SplitSmart
 //
 //  Created by Maksym Pikhteryev on 2024-06-22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct CreateGroupView: View {
+struct CreatePersonView: View {
     @State private var name = ""
     
     @Environment(\.modelContext) private var context
@@ -21,9 +21,9 @@ struct CreateGroupView: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Enter Title", text: $name)
+                TextField("Enter Name", text: $name)
                 Button("Save") {
-                    let todo = Group(name: name)
+                    let todo = Person(name: name)
                     context.insert(todo)
                     do {
                         try context.save()
@@ -33,7 +33,7 @@ struct CreateGroupView: View {
                     dismiss()
                 }.disabled(!isFormValid)
             }
-            .navigationTitle("Create Group")
+            .navigationTitle("Create Person")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Close") {
@@ -46,6 +46,6 @@ struct CreateGroupView: View {
 }
 
 #Preview {
-    CreateGroupView()
-        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
+    CreatePersonView()
+        .modelContainer(for: [Person.self])
 }

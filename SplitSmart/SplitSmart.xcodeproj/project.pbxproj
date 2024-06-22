@@ -22,6 +22,11 @@
 		D7B2B2562C276FB70075BDE4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2552C276FB70075BDE4 /* Group.swift */; };
 		D7B2B2582C27701B0075BDE4 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2572C27701B0075BDE4 /* CreateGroupView.swift */; };
 		D7B2B25A2C2772F40075BDE4 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2592C2772F40075BDE4 /* GroupDetailView.swift */; };
+		D7B2B25D2C277DDE0075BDE4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B25C2C277DDE0075BDE4 /* Person.swift */; };
+		D7B2B25F2C2787BA0075BDE4 /* GroupAndPeopleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B25E2C2787BA0075BDE4 /* GroupAndPeopleListView.swift */; };
+		D7B2B2612C27880E0075BDE4 /* PeopleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2602C27880E0075BDE4 /* PeopleListView.swift */; };
+		D7B2B2632C2788C30075BDE4 /* CreatePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2622C2788C30075BDE4 /* CreatePersonView.swift */; };
+		D7B2B2652C2789200075BDE4 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2642C2789200075BDE4 /* PersonDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,11 @@
 		D7B2B2552C276FB70075BDE4 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = SplitSmart/Views/Group.swift; sourceTree = SOURCE_ROOT; };
 		D7B2B2572C27701B0075BDE4 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
 		D7B2B2592C2772F40075BDE4 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
+		D7B2B25C2C277DDE0075BDE4 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		D7B2B25E2C2787BA0075BDE4 /* GroupAndPeopleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAndPeopleListView.swift; sourceTree = "<group>"; };
+		D7B2B2602C27880E0075BDE4 /* PeopleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListView.swift; sourceTree = "<group>"; };
+		D7B2B2622C2788C30075BDE4 /* CreatePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonView.swift; sourceTree = "<group>"; };
+		D7B2B2642C2789200075BDE4 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +189,7 @@
 			children = (
 				6FB7A41F2C27729C00688D42 /* Expense.swift */,
 				D7B2B2552C276FB70075BDE4 /* Group.swift */,
+				D7B2B25C2C277DDE0075BDE4 /* Person.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,9 +213,13 @@
 		D7B2B25B2C2773010075BDE4 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				D7B2B25E2C2787BA0075BDE4 /* GroupAndPeopleListView.swift */,
 				D7B2B2532C276F990075BDE4 /* GroupListView.swift */,
+				D7B2B2602C27880E0075BDE4 /* PeopleListView.swift */,
 				D7B2B2572C27701B0075BDE4 /* CreateGroupView.swift */,
+				D7B2B2622C2788C30075BDE4 /* CreatePersonView.swift */,
 				D7B2B2592C2772F40075BDE4 /* GroupDetailView.swift */,
+				D7B2B2642C2789200075BDE4 /* PersonDetailView.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -340,12 +355,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FB7A4232C2781DC00688D42 /* AddExpenseView.swift in Sources */,
+				D7B2B2632C2788C30075BDE4 /* CreatePersonView.swift in Sources */,
 				6FB7A4202C27729C00688D42 /* Expense.swift in Sources */,
 				6FB7A3F12C275F9900688D42 /* ContentView.swift in Sources */,
 				6FB7A3EF2C275F9900688D42 /* SplitSmartApp.swift in Sources */,
+				D7B2B25F2C2787BA0075BDE4 /* GroupAndPeopleListView.swift in Sources */,
 				6FB7A41C2C27601E00688D42 /* Constants.swift in Sources */,
+				D7B2B2652C2789200075BDE4 /* PersonDetailView.swift in Sources */,
 				D7B2B25A2C2772F40075BDE4 /* GroupDetailView.swift in Sources */,
+				D7B2B2612C27880E0075BDE4 /* PeopleListView.swift in Sources */,
 				D7B2B2562C276FB70075BDE4 /* Group.swift in Sources */,
+				D7B2B25D2C277DDE0075BDE4 /* Person.swift in Sources */,
 				D7B2B2582C27701B0075BDE4 /* CreateGroupView.swift in Sources */,
 				D7B2B2542C276F990075BDE4 /* GroupListView.swift in Sources */,
 				6FB7A4262C27827E00688D42 /* ActivitiesView.swift in Sources */,

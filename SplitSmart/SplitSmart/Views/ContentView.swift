@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var selectedTab: Constants.Tab = .groups
     var body: some View {
         TabView(selection: $selectedTab) {
-            GroupListView()
+            GroupAndPeopleListView()
                 .tabItem {
                     Label("Groups", systemImage: "house")
                 }
