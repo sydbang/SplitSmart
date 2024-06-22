@@ -57,6 +57,20 @@ struct AddExpenseView: View {
             TextField("Enter detail", text: $detail)
             TextField("0.00", value: $amount, formatter: numberFormatter)
                 .keyboardType(.decimalPad)
+            HStack {
+                Text("Paid by ")
+                Button {
+                    //TODO: grab list of people from group
+                } label: {
+                    ButtonView(buttonText: "you")
+                }
+                Text(" and split ")
+                Button {
+                    //TODO: send them to options
+                } label: {
+                    ButtonView(buttonText: "equally")
+                }
+            }
         }.padding()
     }
 }
