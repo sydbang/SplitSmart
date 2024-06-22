@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Constants {
+    enum expenseType {
+        case share
+        case percentage
+        case exactValue
+    }
+}
