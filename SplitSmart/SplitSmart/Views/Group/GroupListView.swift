@@ -25,35 +25,37 @@ struct GroupListView: View {
         }
     }
     var body: some View {
-        VStack {
-            HStack {
-                Text("Groups")
-                Spacer()
-                Button {
-                    isPresented = true
-                } label: {
-                    Image(systemName: "plus")
+        NavigationStack {
+            VStack {
+                HStack {
+                    Text("Groups")
+                    Spacer()
+                    Button {
+                        isPresented = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+
+                List {
+                    ForEach(groups, id: \.id) { group in
+                        NavigationLink(value: group) {
+                            VStack(alignment: .leading) {
+                                Text(group.name)
+                                    .font(.title3)
+                                Text(group.name)
+                                    .font(.caption)
+                            }
+                        }
+                    }.onDelete(perform: deleteTodo)
+                }.navigationDestination(for: Group.self) { group in
+                    GroupDetailView(group: group)
                 }
             }
-
-            List {
-                ForEach(groups, id: \.id) { group in
-                    NavigationLink(value: group) {
-                        VStack(alignment: .leading) {
-                            Text(group.name)
-                                .font(.title3)
-                            Text(group.name)
-                                .font(.caption)
-                        }
-                    }
-                }.onDelete(perform: deleteTodo)
-            }.navigationDestination(for: Group.self) { group in
-                GroupDetailView(group: group)
-            }
+            .sheet(isPresented: $isPresented, content: {
+                CreateGroupView()
+            })
         }
-        .sheet(isPresented: $isPresented, content: {
-            CreateGroupView()
-        })
     }
 }
 
