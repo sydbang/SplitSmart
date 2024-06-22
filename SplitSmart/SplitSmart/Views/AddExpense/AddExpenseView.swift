@@ -6,17 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddExpenseView: View {
+    @Environment(\.modelContext) private var context
+    @Query(sort: \Group.id, order: .reverse) private var groups: [Group]
+    
     @Binding var selectedTab: Constants.Tab
-    @State private var detail = ""
+    @State private var detail: String = ""
     @State private var amount: Double?
+    @State private var withWhom: Group?
     
     private let numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         return numberFormatter
-    }()
+    }() // TODO: This should go to ViewModel
     
     var body: some View {
         VStack {
@@ -36,6 +41,19 @@ struct AddExpenseView: View {
                     Text("Save")
                 })
             }
+            HStack{
+                Text("With you and: ")
+                Picker("Please choose group", selection: $withWhom) {
+                    ForEach(groups, id: \.self) { group in
+                        Text(group.name)
+                    }
+                }
+                Button(action: {
+                    selectedTab = .groups
+                }, label: {
+                    Text("+")
+                })
+            }
             TextField("Enter detail", text: $detail)
             TextField("0.00", value: $amount, formatter: numberFormatter)
                 .keyboardType(.decimalPad)
@@ -45,4 +63,5 @@ struct AddExpenseView: View {
 
 #Preview {
     AddExpenseView(selectedTab: Binding.constant(Constants.Tab.addExpense))
+        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
 }
