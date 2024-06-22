@@ -9,6 +9,15 @@ import SwiftUI
 
 struct AddExpenseView: View {
     @Binding var selectedTab: Constants.Tab
+    @State private var detail = ""
+    @State private var amount: Double?
+    
+    private let numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        return numberFormatter
+    }()
+    
     var body: some View {
         VStack {
             HStack {
@@ -19,8 +28,18 @@ struct AddExpenseView: View {
                 })
                 Spacer()
                 Text("add an expense")
+                Spacer()
+                Button(action: {
+                    //TODO: disable this button until all data required has been entered
+                    //TODO: actual save the data to db
+                }, label: {
+                    Text("Save")
+                })
             }
-        }
+            TextField("Enter detail", text: $detail)
+            TextField("0.00", value: $amount, formatter: numberFormatter)
+                .keyboardType(.decimalPad)
+        }.padding()
     }
 }
 
