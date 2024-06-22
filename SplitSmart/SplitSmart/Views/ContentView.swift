@@ -6,19 +6,35 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+
+    @State private var isPresented: Bool = false
+    @Query(sort: \Group.id, order: .reverse) private var groups: [Group]
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                GroupListView(groups: groups)
+                    .navigationTitle("SplitSmart")
+            }
+            .sheet(isPresented: $isPresented, content: {
+                CreateGroupView()
+            })
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        isPresented = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}
