@@ -9,10 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct PeopleListView: View {
-    @State private var isPresented: Bool = false
-    @Query(sort: \Person.id, order: .reverse) private var people: [Person]
+    @Environment(PersonModel.self) var personModel
     
-    @Environment(\.modelContext) private var context
+    @State private var isPresented: Bool = false
     
     var body: some View {
         VStack {
@@ -27,7 +26,7 @@ struct PeopleListView: View {
             }.padding()
 
             List {
-                ForEach(people, id: \.id) { person in
+                ForEach(personModel.people, id: \.id) { person in
                     NavigationLink(value: person) {
                         VStack(alignment: .leading) {
                             Text(person.name)
@@ -36,7 +35,7 @@ struct PeopleListView: View {
                                 .font(.caption)
                         }
                     }
-                }
+                }.onDelete(perform: personModel.deletePerson)
             }
             .listStyle(.plain)
             .navigationDestination(for: Person.self) { person in

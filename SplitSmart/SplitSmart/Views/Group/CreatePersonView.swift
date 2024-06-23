@@ -9,10 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct CreatePersonView: View {
+    @Environment(PersonModel.self) var personModel
+    @Environment(\.dismiss) private var dismiss
+
     @State private var name = ""
     
-    @Environment(\.modelContext) private var context
-    @Environment(\.dismiss) private var dismiss
     
     private var isFormValid: Bool {
         !name.isEmpty
@@ -23,13 +24,7 @@ struct CreatePersonView: View {
             Form {
                 TextField("Enter Name", text: $name)
                 Button("Save") {
-                    let todo = Person(name: name)
-                    context.insert(todo)
-                    do {
-                        try context.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+                    personModel.createPerson(name: name)
                     dismiss()
                 }.disabled(!isFormValid)
             }

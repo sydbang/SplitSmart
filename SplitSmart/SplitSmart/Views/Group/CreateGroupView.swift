@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct CreateGroupView: View {
-    @State private var name = ""
-    
     @Environment(GroupModel.self) var groupModel
     @Environment(\.dismiss) private var dismiss
+    
+    @State private var name = ""
     
     private var isFormValid: Bool {
         !name.isEmpty

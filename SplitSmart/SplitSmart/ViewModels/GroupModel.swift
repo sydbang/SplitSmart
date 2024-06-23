@@ -28,8 +28,8 @@ class GroupModel {
     }
     
     func createGroup(name: String) {
-        let todo = Group(name: name)
-        modelContext.insert(todo)
+        let group = Group(name: name)
+        modelContext.insert(group)
         do {
             try modelContext.save()
         } catch {

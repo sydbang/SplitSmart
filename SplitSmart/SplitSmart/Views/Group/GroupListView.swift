@@ -9,9 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct GroupListView: View {
-    @State private var isPresented: Bool = false
-
     @Environment(GroupModel.self) var groupModel
+    
+    @State private var isPresented: Bool = false
     
     var body: some View {
         VStack {
