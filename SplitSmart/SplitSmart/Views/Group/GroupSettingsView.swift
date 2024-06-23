@@ -53,7 +53,7 @@ struct GroupSettingsView: View {
 
 #Preview {
     let config = ModelConfiguration()
-    let container = try! ModelContainer(for: Group.self, configurations: config)
+    let _ = try! ModelContainer(for: Group.self, configurations: config)
     let group = Group(name: "Group #1")
     
     return GroupSettingsView(group: group)

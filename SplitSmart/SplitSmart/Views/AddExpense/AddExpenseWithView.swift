@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AddExpenseWithView: View {
-    @Binding var withGroup: [Group]
+    @Binding var withGroup: Group?
     @Binding var withWhom: [Person]
 
     var body: some View {
         HStack {
             Text("With you and: ")
-            ForEach (withGroup, id:\.id) { group in
+            if let group = withGroup {
                 GroupBubble(name: group.name, isGroup: true)
             }
             ForEach (withWhom, id:\.id) { person in
@@ -25,5 +25,5 @@ struct AddExpenseWithView: View {
 }
 
 #Preview {
-    AddExpenseWithView(withGroup: Binding.constant([]), withWhom: Binding.constant([]))
+    AddExpenseWithView(withGroup: Binding.constant(nil), withWhom: Binding.constant([]))
 }

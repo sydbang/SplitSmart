@@ -9,6 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct AddExpenseView: View {
+    @Environment(ExpenseModel.self) var expenseModel
+    @State private var presentSelectGroup: Bool = true
+    
     @Environment(\.modelContext) private var context
     @Query(sort: \Group.id, order: .reverse) private var groups: [Group]
     @Query(sort: \Person.id, order: .reverse) private var person: [Person]
@@ -16,14 +19,8 @@ struct AddExpenseView: View {
     @Binding var selectedTab: Constants.Tab
     @State private var detail: String = ""
     @State private var amount: Double?
-    @State private var withGroup: [Group] = []
+    @State private var withGroup: Group? = nil
     @State private var withWhom: [Person] = []
-    
-    private let numberFormatter: NumberFormatter = {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .currency
-        return numberFormatter
-    }() // TODO: This should go to ViewModel
     
     var body: some View {
         VStack {
@@ -47,13 +44,13 @@ struct AddExpenseView: View {
                 AddExpenseWithView(withGroup: $withGroup, withWhom: $withWhom)
                 Spacer()
                 Button(action: {
-                    // TODO: Go to selection and fill out withGroup and withWhom
+                    presentSelectGroup = true
                 }, label: {
                     Text("+")
                 })
             }
             TextField("Enter detail", text: $detail)
-            TextField("0.00", value: $amount, formatter: numberFormatter)
+            TextField("0.00", value: $amount, formatter: expenseModel.numberFormatter)
                 .keyboardType(.decimalPad)
             HStack {
                 Text("Paid by ")
@@ -70,10 +67,14 @@ struct AddExpenseView: View {
                 }
             }
         }.padding()
+            .sheet(isPresented: $presentSelectGroup, content: {
+                ChooseGroupView(withGroup: $withGroup, withWhom: $withWhom)
+            })
     }
 }
 
 #Preview {
     AddExpenseView(selectedTab: Binding.constant(Constants.Tab.addExpense))
         .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
+        .environment(ExpenseModel())
 }
