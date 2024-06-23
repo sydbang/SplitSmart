@@ -9,13 +9,13 @@ import SwiftUI
 
 @main
 struct SplitSmartApp: App {
-    @State var expenseViewModel = ExpenseModel()
+    @State var expenseModel = ExpenseModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
         .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
-        .environment(expenseViewModel)
+        .environment(expenseModel)
     }
 }
