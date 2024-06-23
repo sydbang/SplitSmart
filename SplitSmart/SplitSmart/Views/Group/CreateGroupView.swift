@@ -11,7 +11,7 @@ import SwiftData
 struct CreateGroupView: View {
     @State private var name = ""
     
-    @Environment(\.modelContext) private var context
+    @Environment(GroupModel.self) var groupModel
     @Environment(\.dismiss) private var dismiss
     
     private var isFormValid: Bool {
@@ -23,13 +23,8 @@ struct CreateGroupView: View {
             Form {
                 TextField("Enter Title", text: $name)
                 Button("Save") {
-                    let todo = Group(name: name)
-                    context.insert(todo)
-                    do {
-                        try context.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+                    groupModel.createGroup(name: name)
+                    
                     dismiss()
                 }.disabled(!isFormValid)
             }

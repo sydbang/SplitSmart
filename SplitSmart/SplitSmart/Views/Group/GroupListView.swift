@@ -35,7 +35,7 @@ struct GroupListView: View {
                                 .font(.caption)
                         }
                     }
-                }//.onDelete(perform: deleteGroup)
+                }.onDelete(perform: groupModel.deleteGroup)
             }
             .listStyle(.plain)
             .navigationDestination(for: Group.self) { group in
@@ -46,18 +46,6 @@ struct GroupListView: View {
             CreateGroupView()
         })
     }
-    
-//    private func deleteGroup(indexSet: IndexSet) {
-//        indexSet.forEach { index in
-//            let group = groupModel.groups[index]
-//            context.delete(group)
-//            do {
-//                try context.save()
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
 }
 
 #Preview {

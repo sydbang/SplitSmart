@@ -26,4 +26,27 @@ class GroupModel {
             print("Fetch failed")
         }
     }
+    
+    func createGroup(name: String) {
+        let todo = Group(name: name)
+        modelContext.insert(todo)
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        fetchData()
+    }
+    
+    func deleteGroup(indexSet: IndexSet) {
+        indexSet.forEach { index in
+            let group = groups[index]
+            modelContext.delete(group)
+            do {
+                try modelContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
