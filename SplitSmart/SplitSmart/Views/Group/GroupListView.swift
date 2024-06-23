@@ -11,20 +11,10 @@ import SwiftData
 struct GroupListView: View {
     @State private var isPresented: Bool = false
 
-    @Query(sort: \Group.id, order: .reverse) private var groups: [Group] = []
+    @Environment(GroupModel.self) var groupModel
     
-    @Environment(\.modelContext) private var context
-    private func deleteTodo(indexSet: IndexSet) {
-        indexSet.forEach { index in
-            let todo = groups[index]
-            context.delete(todo)
-            do {
-                try context.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
+//    @Environment(\.modelContext) private var context
+    
     var body: some View {
         VStack {
             HStack {
@@ -38,7 +28,7 @@ struct GroupListView: View {
             }.padding()
 
             List {
-                ForEach(groups, id: \.id) { group in
+                ForEach(groupModel.groups, id: \.id) { group in
                     NavigationLink(value: group) {
                         VStack(alignment: .leading) {
                             Text(group.name)
@@ -47,7 +37,7 @@ struct GroupListView: View {
                                 .font(.caption)
                         }
                     }
-                }.onDelete(perform: deleteTodo)
+                }//.onDelete(perform: deleteGroup)
             }
             .listStyle(.plain)
             .navigationDestination(for: Group.self) { group in
@@ -58,6 +48,18 @@ struct GroupListView: View {
             CreateGroupView()
         })
     }
+    
+//    private func deleteGroup(indexSet: IndexSet) {
+//        indexSet.forEach { index in
+//            let group = groupModel.groups[index]
+//            context.delete(group)
+//            do {
+//                try context.save()
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
 }
 
 #Preview {
