@@ -9,6 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @State var expenseModel = ExpenseModel()
+    @State private var groupModel: GroupModel
+    @State var personModel = PersonModel()
     
     @State private var selectedTab: Constants.Tab = .groups
     var body: some View {
@@ -34,10 +37,22 @@ struct ContentView: View {
                 }
                 .tag(Constants.Tab.settings)
         }
+//        .environment(expenseModel)
+        .environment(groupModel)
+//        .environment(personModel)
+    }
+    
+    init(modelContext: ModelContext) {
+//        let expenseModel = ExpenseModel(modelContext: modelContext)
+//        _groupModel = State(initialValue: groupModel)
+        let groupModel = GroupModel(modelContext: modelContext)
+        _groupModel = State(initialValue: groupModel)
+//        let personModel = GroupModel(modelContext: modelContext)
+//        _personModel = State(initialValue: groupModel)
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
-}
+//#Preview {
+//    ContentView()
+//        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
+//}

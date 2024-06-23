@@ -11,12 +11,12 @@ import SwiftData
 struct GroupDetailView: View {
     @State private var addPersonIsPresented: Bool = false
 
-    @State private var name: String = ""
-
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
 
     let group: Group
+    
+    @Query private var expenses: [Expense]
 
     var body: some View {
         HStack {
@@ -26,11 +26,26 @@ struct GroupDetailView: View {
                     .padding()
             }
         }
+        
+        VStack(alignment: .leading) {
+            Text(group.name).font(.title)
+            GroupBalanceSummary(group: group)
+            HStack {
+                Button(action: {}, label: {
+                    Text("Settle Up")
+                })
+                Spacer()
+            }.padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+        }.padding()
 
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Text("Expenses")
+                Spacer()
             }.padding()
+            ForEach(expenses) { expense in
+                Text("expense.id")
+            }
         }
         Spacer()
     }

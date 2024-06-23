@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct SplitSmartApp: App {
-    @State var expenseModel = ExpenseModel()
+    let container: ModelContainer
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(modelContext: container.mainContext)
         }
-        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
-        .environment(expenseModel)
+        .modelContainer(container)
+    }
+    
+    init() {
+        do {
+            container = try ModelContainer(for: Group.self, Expense.self, ExpenseAllocation.self)
+        } catch {
+            fatalError("Failed to create model container.")
+        }
     }
 }
