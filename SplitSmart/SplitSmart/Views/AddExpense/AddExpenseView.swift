@@ -11,11 +11,13 @@ import SwiftData
 struct AddExpenseView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \Group.id, order: .reverse) private var groups: [Group]
+    @Query(sort: \Person.id, order: .reverse) private var person: [Person]
     
     @Binding var selectedTab: Constants.Tab
     @State private var detail: String = ""
     @State private var amount: Double?
-    @State private var withWhom: Group?
+    @State private var withGroup: [Group] = []
+    @State private var withWhom: [Person] = []
     
     private let numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
@@ -42,14 +44,10 @@ struct AddExpenseView: View {
                 })
             }
             HStack{
-                Text("With you and: ")
-                Picker("Please choose group", selection: $withWhom) {
-                    ForEach(groups, id: \.self) { group in
-                        Text(group.name)
-                    }
-                }
+                AddExpenseWithView(withGroup: $withGroup, withWhom: $withWhom)
+                Spacer()
                 Button(action: {
-                    selectedTab = .groups
+                    // TODO: Go to selection and fill out withGroup and withWhom
                 }, label: {
                     Text("+")
                 })

@@ -20,6 +20,8 @@
 		6FB7A4262C27827E00688D42 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A4252C27827E00688D42 /* ActivitiesView.swift */; };
 		6FB7A4292C278EA100688D42 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A4282C278EA100688D42 /* ButtonView.swift */; };
 		6FB7A42B2C27934800688D42 /* ModelContext +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A42A2C27934800688D42 /* ModelContext +.swift */; };
+		6FB7A42D2C27BD0300688D42 /* AddExpenseWithView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A42C2C27BD0300688D42 /* AddExpenseWithView.swift */; };
+		6FB7A42F2C27BDDA00688D42 /* GroupBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7A42E2C27BDDA00688D42 /* GroupBubble.swift */; };
 		D7B2B2542C276F990075BDE4 /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2532C276F990075BDE4 /* GroupListView.swift */; };
 		D7B2B2562C276FB70075BDE4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2552C276FB70075BDE4 /* Group.swift */; };
 		D7B2B2582C27701B0075BDE4 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2572C27701B0075BDE4 /* CreateGroupView.swift */; };
@@ -67,6 +69,8 @@
 		6FB7A4252C27827E00688D42 /* ActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
 		6FB7A4282C278EA100688D42 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		6FB7A42A2C27934800688D42 /* ModelContext +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelContext +.swift"; sourceTree = "<group>"; };
+		6FB7A42C2C27BD0300688D42 /* AddExpenseWithView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseWithView.swift; sourceTree = "<group>"; };
+		6FB7A42E2C27BDDA00688D42 /* GroupBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBubble.swift; sourceTree = "<group>"; };
 		D7B2B2532C276F990075BDE4 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 		D7B2B2552C276FB70075BDE4 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = SplitSmart/Views/Group.swift; sourceTree = SOURCE_ROOT; };
 		D7B2B2572C27701B0075BDE4 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				6FB7A4222C2781DC00688D42 /* AddExpenseView.swift */,
+				6FB7A42C2C27BD0300688D42 /* AddExpenseWithView.swift */,
 			);
 			path = AddExpense;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				6FB7A4282C278EA100688D42 /* ButtonView.swift */,
+				6FB7A42E2C27BDDA00688D42 /* GroupBubble.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -388,6 +394,8 @@
 				D7B2B25D2C277DDE0075BDE4 /* Person.swift in Sources */,
 				D7B2B2582C27701B0075BDE4 /* CreateGroupView.swift in Sources */,
 				D7B2B2542C276F990075BDE4 /* GroupListView.swift in Sources */,
+				6FB7A42F2C27BDDA00688D42 /* GroupBubble.swift in Sources */,
+				6FB7A42D2C27BD0300688D42 /* AddExpenseWithView.swift in Sources */,
 				6FB7A4262C27827E00688D42 /* ActivitiesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
