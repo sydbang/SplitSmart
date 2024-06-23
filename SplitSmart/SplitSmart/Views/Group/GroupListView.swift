@@ -13,8 +13,6 @@ struct GroupListView: View {
 
     @Environment(GroupModel.self) var groupModel
     
-//    @Environment(\.modelContext) private var context
-    
     var body: some View {
         VStack {
             HStack {

@@ -73,8 +73,10 @@ struct AddExpenseView: View {
     }
 }
 
-#Preview {
-    AddExpenseView(selectedTab: Binding.constant(Constants.Tab.addExpense))
-        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
-        .environment(ExpenseModel())
-}
+//#Preview {
+//    let config = ModelConfiguration()
+//    let container = try! ModelContainer(for: Expense.self, configurations: config)
+//    AddExpenseView(selectedTab: Binding.constant(Constants.Tab.addExpense))
+//        .modelContainer(for: [Group.self, Expense.self, ExpenseAllocation.self])
+//        .environment(ExpenseModel(modelContext: container.mainContext))
+//}

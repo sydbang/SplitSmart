@@ -6,9 +6,25 @@
 //
 
 import Foundation
+import SwiftData
 
 @Observable
 class PersonModel {
+    var modelContext: ModelContext
+    var People: [Person] = []
     
-    //TODO: have list of people available here and publish
+    init(modelContext: ModelContext) {
+        self.modelContext = modelContext
+        fetchData()
+    }
+    
+    func fetchData() {
+        do {
+            let descriptor = FetchDescriptor<Person>(sortBy: [SortDescriptor(\.name)])
+            People = try modelContext.fetch(descriptor)
+        } catch {
+            print("Fetch failed")
+        }
+    }
+    
 }
