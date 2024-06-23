@@ -10,7 +10,8 @@ import SwiftData
 
 struct GroupListView: View {
     @State private var isPresented: Bool = false
-    @Query(sort: \Group.id, order: .reverse) private var groups: [Group]
+
+    @Query(sort: \Group.id, order: .reverse) private var groups: [Group] = []
     
     @Environment(\.modelContext) private var context
     private func deleteTodo(indexSet: IndexSet) {
@@ -34,7 +35,7 @@ struct GroupListView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
-            }
+            }.padding()
 
             List {
                 ForEach(groups, id: \.id) { group in
@@ -47,10 +48,12 @@ struct GroupListView: View {
                         }
                     }
                 }.onDelete(perform: deleteTodo)
-            }.navigationDestination(for: Group.self) { group in
+            }
+            .listStyle(.plain)
+            .navigationDestination(for: Group.self) { group in
                 GroupDetailView(group: group)
             }
-        }.padding()
+        }
         .sheet(isPresented: $isPresented, content: {
             CreateGroupView()
         })

@@ -24,7 +24,7 @@ struct PeopleListView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
-            }
+            }.padding()
 
             List {
                 ForEach(people, id: \.id) { person in
@@ -37,10 +37,12 @@ struct PeopleListView: View {
                         }
                     }
                 }
-            }.navigationDestination(for: Person.self) { person in
+            }
+            .listStyle(.plain)
+            .navigationDestination(for: Person.self) { person in
                 PersonDetailView(person: person)
             }
-        }.padding()
+        }
         .sheet(isPresented: $isPresented, content: {
             CreatePersonView()
         })

@@ -19,44 +19,20 @@ struct GroupDetailView: View {
     let group: Group
 
     var body: some View {
-        Form {
-            TextField("Name", text: $name)
-            
-            Text("Members")
-            ForEach(group.people) { person in
-                Text(person.name)
+        HStack {
+            Spacer()
+            NavigationLink(destination: GroupSettingsView(group: group)) {
+                Image(systemName: "gear")
+                    .padding()
             }
-            
-            Button("Update") {
-                group.name = name
-
-                do {
-                    try context.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
-
-                dismiss()
-            }
-        }.onAppear {
-            name = group.name
         }
-        
+
         VStack {
             HStack {
-                Text("Members")
-                Spacer()
-                Button {
-                    addPersonIsPresented = true
-                } label: {
-                    Image(systemName: "plus")
-                }.sheet(isPresented: $addPersonIsPresented) {
-                    AddPersonToGroupView(group: group)
-                }
+                Text("Expenses")
             }.padding()
         }
         Spacer()
-        
     }
 }
 

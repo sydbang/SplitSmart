@@ -29,6 +29,7 @@
 		D7B2B2632C2788C30075BDE4 /* CreatePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2622C2788C30075BDE4 /* CreatePersonView.swift */; };
 		D7B2B2652C2789200075BDE4 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2642C2789200075BDE4 /* PersonDetailView.swift */; };
 		D7B2B2672C278D000075BDE4 /* AddPersonToGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2662C278D000075BDE4 /* AddPersonToGroupView.swift */; };
+		D7B2B2692C27C12B0075BDE4 /* GroupSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2B2682C27C12B0075BDE4 /* GroupSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		D7B2B2622C2788C30075BDE4 /* CreatePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonView.swift; sourceTree = "<group>"; };
 		D7B2B2642C2789200075BDE4 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		D7B2B2662C278D000075BDE4 /* AddPersonToGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonToGroupView.swift; sourceTree = "<group>"; };
+		D7B2B2682C27C12B0075BDE4 /* GroupSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 				D7B2B2572C27701B0075BDE4 /* CreateGroupView.swift */,
 				D7B2B2622C2788C30075BDE4 /* CreatePersonView.swift */,
 				D7B2B2592C2772F40075BDE4 /* GroupDetailView.swift */,
+				D7B2B2682C27C12B0075BDE4 /* GroupSettingsView.swift */,
 				D7B2B2642C2789200075BDE4 /* PersonDetailView.swift */,
 				D7B2B2662C278D000075BDE4 /* AddPersonToGroupView.swift */,
 			);
@@ -375,6 +378,7 @@
 				6FB7A4202C27729C00688D42 /* Expense.swift in Sources */,
 				6FB7A3F12C275F9900688D42 /* ContentView.swift in Sources */,
 				6FB7A3EF2C275F9900688D42 /* SplitSmartApp.swift in Sources */,
+				D7B2B2692C27C12B0075BDE4 /* GroupSettingsView.swift in Sources */,
 				D7B2B25F2C2787BA0075BDE4 /* GroupAndPeopleListView.swift in Sources */,
 				6FB7A41C2C27601E00688D42 /* Constants.swift in Sources */,
 				D7B2B2652C2789200075BDE4 /* PersonDetailView.swift in Sources */,
